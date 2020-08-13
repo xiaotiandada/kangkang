@@ -6,13 +6,15 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { Component } from 'react';
+
 import {
   SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   StatusBar,
+  Image
 } from 'react-native';
 
 import {
@@ -22,19 +24,68 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { Container, Header, Item, Input, Body, Title, Content, Footer, FooterTab, Button, Icon, Text } from 'native-base';
-import { Col, Row, Grid } from 'react-native-easy-grid';
+import {
+  Container,
+  Header,
+  Item,
+  Input,
+  Body,
+  Title,
+  Content,
+  Footer,
+  FooterTab,
+  Button,
+  Icon,
+  Text,
+} from 'native-base';
+import {Grid, Col, Row} from 'react-native-easy-grid';
 
-const App: () => React$Node = () => {
 
-  return (
-    <>
+export default class App extends Component {
+  listItems() {
+    const imgList = [
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcR5KsdvgJHtSBbAvFovlZ0qyiln9p_A_sGw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhRF-4R89535QO8EvXtkP0J4W4yjmarHyS3Q&usqp=CAU',
+      'https://image.lnstzy.cn/aoaodcom/2020-02/14/202002140746294253873a66da063b423328a01144d621.png.h700.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcR5KsdvgJHtSBbAvFovlZ0qyiln9p_A_sGw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhRF-4R89535QO8EvXtkP0J4W4yjmarHyS3Q&usqp=CAU',
+      'https://image.lnstzy.cn/aoaodcom/2020-02/14/202002140746294253873a66da063b423328a01144d621.png.h700.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcR5KsdvgJHtSBbAvFovlZ0qyiln9p_A_sGw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhRF-4R89535QO8EvXtkP0J4W4yjmarHyS3Q&usqp=CAU',
+      'https://image.lnstzy.cn/aoaodcom/2020-02/14/202002140746294253873a66da063b423328a01144d621.png.h700.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcR5KsdvgJHtSBbAvFovlZ0qyiln9p_A_sGw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhRF-4R89535QO8EvXtkP0J4W4yjmarHyS3Q&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcR5KsdvgJHtSBbAvFovlZ0qyiln9p_A_sGw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhRF-4R89535QO8EvXtkP0J4W4yjmarHyS3Q&usqp=CAU',
+      'https://image.lnstzy.cn/aoaodcom/2020-02/14/202002140746294253873a66da063b423328a01144d621.png.h700.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcR5KsdvgJHtSBbAvFovlZ0qyiln9p_A_sGw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhRF-4R89535QO8EvXtkP0J4W4yjmarHyS3Q&usqp=CAU',
+      'https://image.lnstzy.cn/aoaodcom/2020-02/14/202002140746294253873a66da063b423328a01144d621.png.h700.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcR5KsdvgJHtSBbAvFovlZ0qyiln9p_A_sGw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhRF-4R89535QO8EvXtkP0J4W4yjmarHyS3Q&usqp=CAU',
+      'https://image.lnstzy.cn/aoaodcom/2020-02/14/202002140746294253873a66da063b423328a01144d621.png.h700.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcR5KsdvgJHtSBbAvFovlZ0qyiln9p_A_sGw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhRF-4R89535QO8EvXtkP0J4W4yjmarHyS3Q&usqp=CAU',
+    ];
+
+    let list = []
+    imgList.map((i, idx) => {
+      list.push(
+        <Col key={idx.toString()} style={{ width: '50%' }}>
+          <Image style={styles.listCover} source={{uri: i}} />
+          <Text>{ idx }</Text>
+        </Col>
+      )
+    })
+    return list
+  }
+
+  render() {
+    return (
       <Container>
         <Header searchBar rounded>
           <Item>
-            <Icon name="ios-search" />
             <Input placeholder="Search" />
-            <Icon name="ios-people" />
           </Item>
           <Button transparent>
             <Text>Search</Text>
@@ -42,44 +93,28 @@ const App: () => React$Node = () => {
         </Header>
         <Content>
           <Grid>
-            <Col style={{ backgroundColor: '#635DB7', height: 200 }}></Col>
-          </Grid>
-          <Grid>
-            <Col style={{ backgroundColor: '#205DB7', height: 200 }}></Col>
-          </Grid>
-          <Grid>
-            <Col style={{ backgroundColor: '#635DB7', height: 200 }}></Col>
-          </Grid>
-          <Grid>
-            <Col style={{ backgroundColor: '#135DB7', height: 200 }}></Col>
-          </Grid>
-          <Grid>
-            <Col style={{ backgroundColor: '#935DB7', height: 200 }}></Col>
-          </Grid>
-          <Grid>
-            <Col style={{ backgroundColor: '#635DB7', height: 200 }}></Col>
+            <Row style={{ flexWrap: "wrap" }}>
+              { this.listItems() }
+            </Row>
           </Grid>
         </Content>
         <Footer>
           <FooterTab>
             <Button vertical>
-              <Icon name="apps" />
               <Text>首页</Text>
             </Button>
             <Button vertical>
-              <Icon name="apps" />
               <Text>发现</Text>
             </Button>
             <Button vertical>
-              <Icon name="person" />
               <Text>我的</Text>
             </Button>
           </FooterTab>
         </Footer>
       </Container>
-    </>
-  );
-};
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -118,7 +153,8 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     textAlign: 'right',
   },
+  listCover: {
+    width: '100%',
+    height: 200
+  }
 });
-
-
-export default App;
