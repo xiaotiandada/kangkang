@@ -49,6 +49,7 @@ export default class App extends Component {
       'https://image.lnstzy.cn/aoaodcom/2020-02/14/202002140746294253873a66da063b423328a01144d621.png.h700.jpg',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcR5KsdvgJHtSBbAvFovlZ0qyiln9p_A_sGw&usqp=CAU',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhRF-4R89535QO8EvXtkP0J4W4yjmarHyS3Q&usqp=CAU',
+      'https://dvblobcdnjp.azureedge.net//Content/Upload/DailyArticle/Images/2019-10/f4108a5b-9d90-4028-ac54-fff85499f13b_m.jpg',
       'https://image.lnstzy.cn/aoaodcom/2020-02/14/202002140746294253873a66da063b423328a01144d621.png.h700.jpg',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcR5KsdvgJHtSBbAvFovlZ0qyiln9p_A_sGw&usqp=CAU',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQhRF-4R89535QO8EvXtkP0J4W4yjmarHyS3Q&usqp=CAU',
